@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #0d1f14;
+  --bg-secondary: #14261a;
+  --accent-gold: #c9a24a;
+  --accent-gold-light: #e0b84a;
+  --accent-warm: #b3452c;
+  --text-primary: #f5f1e8;
+  --text-secondary: #c9c4b8;
+  --border-gold: rgba(201, 162, 74, 0.25);
+  --border-gold-glow: rgba(224, 184, 74, 0.5);
+  --gold-gradient: linear-gradient(135deg, #c9a24a 0%, #f3e5ab 50%, #e0b84a 100%);
+  --gold-glow: 0 0 20px rgba(201, 162, 74, 0.3);
+}
+
+html.light {
+  --bg-primary: #faf8f3;
+  --bg-secondary: #f0ece0;
+  --accent-gold: #a8823a;
+  --accent-gold-light: #c9a24a;
+  --accent-warm: #b3452c;
+  --text-primary: #1a1a15;
+  --text-secondary: #4a4438;
+  --border-gold: rgba(168, 130, 58, 0.3);
+  --border-gold-glow: rgba(168, 130, 58, 0.6);
+  --gold-gradient: linear-gradient(135deg, #a8823a 0%, #d4af37 50%, #c9a24a 100%);
+  --gold-glow: 0 0 15px rgba(168, 130, 58, 0.2);
+}
+
+@theme {
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-accent-gold: var(--accent-gold);
+  --color-accent-gold-light: var(--accent-gold-light);
+  --color-accent-warm: var(--accent-warm);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  
+  --font-serif: var(--font-cinzel), var(--font-playfair), serif;
+  --font-arabic: var(--font-cairo), sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
+.font-gold {
+  font-family: var(--font-cinzel), serif;
+}
+
+.text-gold-gradient {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold Button Styles */
+.btn-gold {
+  background: linear-gradient(135deg, #c9a24a 0%, #b89139 100%);
+  color: #0d1f14;
+  font-weight: 700;
+  border: 1px solid rgba(243, 229, 171, 0.6);
+  border-radius: 9999px;
+  box-shadow: 0 4px 15px rgba(201, 162, 74, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #e0b84a 0%, #c9a24a 100%);
+  box-shadow: 0 6px 25px rgba(224, 184, 74, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-gold-outline {
+  background: transparent;
+  color: var(--accent-gold);
+  border: 1.5px solid var(--accent-gold);
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+}
+
+.btn-gold-outline:hover {
+  background: rgba(201, 162, 74, 0.15);
+  border-color: var(--accent-gold-light);
+  color: var(--accent-gold-light);
+  box-shadow: 0 0 15px rgba(201, 162, 74, 0.25);
+}
+
+/* Card Gold Styling */
+.card-gold {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-gold);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.card-gold:hover {
+  border-color: var(--border-gold-glow);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), var(--gold-glow);
+  transform: translateY(-3px);
+}
+
+/* Decorative Gold Separator */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+
+.gold-divider-icon {
+  margin: 0 1rem;
+  color: var(--accent-gold);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold-light);
+}
+
+/* RTL Helpers */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .font-gold {
+  font-family: var(--font-cairo), var(--font-cinzel), serif;
+}
