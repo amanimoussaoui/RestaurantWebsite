@@ -89,13 +89,13 @@ async function main() {
 
   // Seed Default Admin & Customer Users (ben moussa malek)
   await prisma.user.upsert({
-    where: { email: 'amanimoussaoui06@gmail.com' },
+    where: { email: 'benmoussamalek12@gmail.com' },
     update: {
       name: 'ben moussa malek',
       phone: '+216 27 500 246'
     },
     create: {
-      email: 'amanimoussaoui06@gmail.com',
+      email: 'benmoussamalek12@gmail.com',
       name: 'ben moussa malek',
       phone: '+216 27 500 246',
       role: 'customer',

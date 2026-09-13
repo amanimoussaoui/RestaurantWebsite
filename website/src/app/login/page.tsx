@@ -112,7 +112,7 @@ export default function LoginPage() {
     // Default valid credentials for demo / system accounts if not explicitly set
     if (!registeredPassword) {
       if (cleanEmail === 'amounatahfouna443@gmail.com') registeredPassword = 'password123';
-      else if (cleanEmail === 'malekbenmoussa@gmail.com' || cleanEmail === 'amanimoussaoui06@gmail.com') registeredPassword = 'password123';
+      else if (cleanEmail === 'benmoussamalek12@gmail.com' || cleanEmail === 'malekbenmoussa@gmail.com' || cleanEmail === 'amanimoussaoui06@gmail.com') registeredPassword = 'password123';
       else if (cleanEmail === 'youssef@lecrispy.tn') registeredPassword = 'password123';
       else if (cleanEmail === 'admin@lecrispy.fr') registeredPassword = 'admin123';
       else registeredPassword = 'password123'; // Default secure password for new users

@@ -245,7 +245,7 @@ export default function AdminDashboardPage() {
 
   // --- SECTION 2: USERS STATE (POSTGRESQL SYNCED) ---
   const [userList, setUserList] = useState<AdminUserAccount[]>([
-    { id: 'usr-1', name: 'ben moussa malek', email: 'amanimoussaoui06@gmail.com', phone: '+216 27 500 246', role: 'customer', status: 'active', createdAt: '2026-07-20', orderCount: 8 },
+    { id: 'usr-1', name: 'ben moussa malek', email: 'benmoussamalek12@gmail.com', phone: '+216 27 500 246', role: 'customer', status: 'active', createdAt: '2026-07-20', orderCount: 8 },
     { id: 'usr-2', name: 'ben moussa malek (Admin)', email: 'amounatahfouna443@gmail.com', phone: '+216 27 500 246', role: 'admin', status: 'active', createdAt: '2026-06-10', orderCount: 15 },
     { id: 'usr-3', name: 'Ines Triki (Caisse)', email: 'ines.caisse@lecrispy.com', phone: '+33 6 55 88 99 00', role: 'cashier', status: 'active', createdAt: '2026-07-01', orderCount: 0 }
   ]);

@@ -19,7 +19,7 @@ export async function GET() {
   } catch (error) {
     console.error('API Error /api/users GET:', error);
     return NextResponse.json([
-      { id: 'usr-1', name: 'ben moussa malek', email: 'amanimoussaoui06@gmail.com', phone: '+216 27 500 246', role: 'customer', createdAt: '2026-07-20' },
+      { id: 'usr-1', name: 'ben moussa malek', email: 'benmoussamalek12@gmail.com', phone: '+216 27 500 246', role: 'customer', createdAt: '2026-07-20' },
       { id: 'usr-2', name: 'ben moussa malek (Admin)', email: 'amounatahfouna443@gmail.com', phone: '+216 27 500 246', role: 'admin', createdAt: '2026-06-10' }
     ]);
   }

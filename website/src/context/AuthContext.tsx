@@ -17,7 +17,7 @@ interface AuthContextType {
 const DEFAULT_MOCK_USER: UserProfile = {
   id: 'usr-malek-001',
   name: 'ben moussa malek',
-  email: 'amanimoussaoui06@gmail.com',
+  email: 'benmoussamalek12@gmail.com',
   phone: '+216 27 500 246',
   whatsappPhone: '+33 6 12 34 56 78',
   avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
@@ -47,8 +47,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       if (savedUser) {
         const parsed = JSON.parse(savedUser);
         const legacyPattern = /moussaoui|amani|youssef|youssen|ammar|aamar/i;
+        let changed = false;
         if (parsed && parsed.name && legacyPattern.test(parsed.name)) {
           parsed.name = 'ben moussa malek';
+          changed = true;
+        }
+        if (parsed && parsed.email && (parsed.email.includes('amanimoussaoui') || parsed.email.includes('malekbenmoussa'))) {
+          parsed.email = 'benmoussamalek12@gmail.com';
+          changed = true;
+        }
+        if (changed) {
           localStorage.setItem('or_noir_user', JSON.stringify(parsed));
         }
         setUser(parsed);
