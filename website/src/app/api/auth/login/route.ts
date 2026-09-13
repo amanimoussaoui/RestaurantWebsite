@@ -14,10 +14,24 @@ export async function POST(req: Request) {
       include: { addresses: true }
     });
 
-    if (!user) {
-      // Determine real name and phone
-      const displayName = name || (email.toLowerCase().includes('amani') ? 'moussaoui amani' : email.split('@')[0]);
-      const displayPhone = phone || '+216 27 500 246';
+    if (user) {
+      if (user.name && (/moussaoui|amani|youssef|youssen|ammar|aamar/i.test(user.name))) {
+        try {
+          user = await db.user.update({
+            where: { id: user.id },
+            data: { name: 'ben moussa malek' },
+            include: { addresses: true }
+          });
+        } catch {
+          user = { ...user, name: 'ben moussa malek' };
+        }
+      }
+      return NextResponse.json(user);
+    }
+
+    // Determine real name and phone
+    const displayName = name || (email.toLowerCase().includes('amani') || email.toLowerCase().includes('malek') ? 'ben moussa malek' : email.split('@')[0]);
+    const displayPhone = phone || '+216 27 500 246';
 
       user = await db.user.create({
         data: {
@@ -39,7 +53,6 @@ export async function POST(req: Request) {
         },
         include: { addresses: true }
       });
-    }
 
     return NextResponse.json(user);
   } catch (error: any) {

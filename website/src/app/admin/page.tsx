@@ -245,8 +245,8 @@ export default function AdminDashboardPage() {
 
   // --- SECTION 2: USERS STATE (POSTGRESQL SYNCED) ---
   const [userList, setUserList] = useState<AdminUserAccount[]>([
-    { id: 'usr-1', name: 'moussaoui amani', email: 'amanimoussaoui06@gmail.com', phone: '+216 27 500 246', role: 'customer', status: 'active', createdAt: '2026-07-20', orderCount: 8 },
-    { id: 'usr-2', name: 'moussaoui amani (Admin)', email: 'amounatahfouna443@gmail.com', phone: '+216 27 500 246', role: 'admin', status: 'active', createdAt: '2026-06-10', orderCount: 15 },
+    { id: 'usr-1', name: 'ben moussa malek', email: 'amanimoussaoui06@gmail.com', phone: '+216 27 500 246', role: 'customer', status: 'active', createdAt: '2026-07-20', orderCount: 8 },
+    { id: 'usr-2', name: 'ben moussa malek (Admin)', email: 'amounatahfouna443@gmail.com', phone: '+216 27 500 246', role: 'admin', status: 'active', createdAt: '2026-06-10', orderCount: 15 },
     { id: 'usr-3', name: 'Ines Triki (Caisse)', email: 'ines.caisse@lecrispy.com', phone: '+33 6 55 88 99 00', role: 'cashier', status: 'active', createdAt: '2026-07-01', orderCount: 0 }
   ]);
   const [userSearch, setUserSearch] = useState('');
@@ -408,8 +408,8 @@ export default function AdminDashboardPage() {
 
   // --- SECTION 7: AUDIT LOGS STATE ---
   const [auditLogs, setAuditLogs] = useState<AuditLog[]>([
-    { id: 'log-1', adminName: 'Super Admin Youssef', action: 'Changement de statut commande', target: 'ORD-6190 ➔ Prête', timestamp: '2026-08-08 15:15' },
-    { id: 'log-2', adminName: 'Super Admin Youssef', action: 'Désactivation de compte client', target: 'Client Mohamed Ali (dali@example.com)', timestamp: '2026-08-08 14:30' },
+    { id: 'log-1', adminName: 'Super Admin Malek', action: 'Changement de statut commande', target: 'ORD-6190 ➔ Prête', timestamp: '2026-08-08 15:15' },
+    { id: 'log-2', adminName: 'Super Admin Malek', action: 'Désactivation de compte client', target: 'Client Mohamed Ali (dali@example.com)', timestamp: '2026-08-08 14:30' },
     { id: 'log-3', adminName: 'Ines (Caissière)', action: 'Validation de paiement', target: 'Paiement Carte Table #03 (18.50 €)', timestamp: '2026-08-08 13:40' }
   ]);
 
@@ -436,7 +436,7 @@ export default function AdminDashboardPage() {
   const handleAdminGateLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (adminPasswordInput === 'admin123' || adminPasswordInput === 'admin') {
-      await login('admin@lecrispy.fr', 'admin', 'Super Administrateur Youssef', '+33 1 42 68 00 00');
+      await login('admin@lecrispy.fr', 'admin', 'Super Administrateur Malek', '+33 1 42 68 00 00');
       setAdminAuthError(false);
     } else {
       setAdminAuthError(true);

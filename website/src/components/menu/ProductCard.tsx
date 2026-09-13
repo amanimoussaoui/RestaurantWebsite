@@ -90,11 +90,11 @@ export default function ProductCard({ product, onSelect }: ProductCardProps) {
             </span>
           )}
           <button
-            onClick={() => addItem(product)}
+            onClick={() => onSelect(product)}
             className="btn-gold px-3.5 py-1.5 text-xs flex items-center gap-1.5 ml-auto"
           >
             <Plus className="w-3.5 h-3.5" />
-            <span>{t('addToCart')}</span>
+            <span>Personnaliser & Ajouter</span>
           </button>
         </div>
 

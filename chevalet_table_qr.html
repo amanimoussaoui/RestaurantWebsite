@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Crispy - Chevalet de Table QR Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A5 portrait;
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #07100B;
+      color: #F5F1E8;
+      font-family: 'Outfit', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .card {
+      width: 100%;
+      max-width: 440px;
+      background: radial-gradient(circle at 50% 20%, #163020 0%, #0c1c13 60%, #07100b 100%);
+      border: 3px solid #C9A24A;
+      border-radius: 28px;
+      padding: 44px 36px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(201, 162, 74, 0.25);
+    }
+    .corner-decor {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #E0B84A;
+    }
+    .corner-tl { top: 14px; left: 14px; border-right: none; border-bottom: none; border-top-left-radius: 12px; }
+    .corner-tr { top: 14px; right: 14px; border-left: none; border-bottom: none; border-top-right-radius: 12px; }
+    .corner-bl { bottom: 14px; left: 14px; border-right: none; border-top: none; border-bottom-left-radius: 12px; }
+    .corner-br { bottom: 14px; right: 14px; border-left: none; border-top: none; border-bottom-right-radius: 12px; }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1E412A, #0D2214);
+      border: 2px solid #C9A24A;
+      box-shadow: 0 0 20px rgba(201, 162, 74, 0.35);
+      margin-bottom: 16px;
+      font-size: 32px;
+    }
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      background: linear-gradient(135deg, #FFF1C5 0%, #E0B84A 50%, #C9A24A 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .subtitle {
+      font-size: 13px;
+      letter-spacing: 4px;
+      color: #C9C4B8;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 26px;
+    }
+    .qr-container {
+      background: #FFFFFF;
+      padding: 16px;
+      border-radius: 20px;
+      display: inline-block;
+      border: 3px solid #C9A24A;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      margin-bottom: 22px;
+      position: relative;
+    }
+    .qr-container img {
+      display: block;
+      width: 220px;
+      height: 220px;
+      border-radius: 10px;
+    }
+    .instruction-badge {
+      display: inline-block;
+      background: rgba(201, 162, 74, 0.15);
+      border: 1px solid rgba(201, 162, 74, 0.4);
+      color: #E0B84A;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+      letter-spacing: 1px;
+    }
+    .action-text {
+      font-size: 15px;
+      color: #F5F1E8;
+      font-weight: 500;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(201, 162, 74, 0.25);
+      font-size: 11px;
+      color: #C9C4B8;
+      font-weight: 500;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .url-tag {
+      font-family: monospace;
+      color: #E0B84A;
+      font-size: 12px;
+      margin-top: 14px;
+      opacity: 0.9;
+    }
+
+    @media print {
+      body {
+        padding: 0;
+        background: transparent;
+      }
+      .card {
+        box-shadow: none;
+        max-width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="corner-decor corner-tl"></div>
+    <div class="corner-decor corner-tr"></div>
+    <div class="corner-decor corner-bl"></div>
+    <div class="corner-decor corner-br"></div>
+
+    <div class="logo-badge">🍗</div>
+    <h1>Le Crispy</h1>
+    <p class="subtitle">Haute Fast-Food & Fine Dining</p>
+
+    <div class="qr-container">
+      <img src="qrcode_lecrispy.png" alt="QR Code Le Crispy - https://lecrispy.vercel.app">
+    </div>
+
+    <div>
+      <span class="instruction-badge">✦ SCANNEZ AVEC VOTRE APPAREIL ✦</span>
+      <p class="action-text">
+        Accédez à notre Carte Gastronomique,<br>
+        commandez à votre table & payez en direct.
+      </p>
+      <p class="url-tag">https://lecrispy.vercel.app</p>
+    </div>
+
+    <div class="features">
+      <span class="feature-item">📱 Menu Digital</span>
+      <span>•</span>
+      <span class="feature-item">🍽️ Service à Table</span>
+      <span>•</span>
+      <span class="feature-item">💳 Paiement Sécurisé</span>
+    </div>
+  </div>
+</body>
+</html>

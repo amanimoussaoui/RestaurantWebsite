@@ -15,8 +15,8 @@ interface AuthContextType {
 }
 
 const DEFAULT_MOCK_USER: UserProfile = {
-  id: 'usr-amani-001',
-  name: 'moussaoui amani',
+  id: 'usr-malek-001',
+  name: 'ben moussa malek',
   email: 'amanimoussaoui06@gmail.com',
   phone: '+216 27 500 246',
   whatsappPhone: '+33 6 12 34 56 78',
@@ -45,7 +45,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const savedUser = localStorage.getItem('or_noir_user');
       if (savedUser) {
-        setUser(JSON.parse(savedUser));
+        const parsed = JSON.parse(savedUser);
+        const legacyPattern = /moussaoui|amani|youssef|youssen|ammar|aamar/i;
+        if (parsed && parsed.name && legacyPattern.test(parsed.name)) {
+          parsed.name = 'ben moussa malek';
+          localStorage.setItem('or_noir_user', JSON.stringify(parsed));
+        }
+        setUser(parsed);
       } else {
         setUser(DEFAULT_MOCK_USER);
       }
@@ -64,7 +70,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = async (email: string, role: 'customer' | 'admin' = 'customer', name?: string, phone?: string) => {
     const cleanEmail = email.toLowerCase().trim();
-    const displayName = name || (cleanEmail.includes('amani') ? 'moussaoui amani' : cleanEmail.split('@')[0]);
+    const displayName = name || (cleanEmail.includes('amani') || cleanEmail.includes('malek') ? 'ben moussa malek' : cleanEmail.split('@')[0]);
     const displayPhone = phone || '+216 27 500 246';
 
     try {
@@ -78,9 +84,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       if (res.ok) {
         const dbUser = await res.json();
+        const legacyPattern = /moussaoui|amani|youssef|youssen|ammar|aamar/i;
+        const resolvedName = (dbUser.name && legacyPattern.test(dbUser.name))
+          ? 'ben moussa malek'
+          : (dbUser.name || displayName);
         setUser({
           id: dbUser.id || `usr-${Date.now()}`,
-          name: dbUser.name || displayName,
+          name: resolvedName,
           email: dbUser.email || cleanEmail,
           phone: dbUser.phone || displayPhone,
           whatsappPhone: dbUser.whatsappPhone || displayPhone || '+33 6 12 34 56 78',

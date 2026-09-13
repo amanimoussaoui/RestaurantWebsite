@@ -41,12 +41,22 @@ export default function ProfilePage() {
   
   // Profile Edit State
   const [isEditingProfile, setIsEditingProfile] = useState(false);
-  const [editName, setEditName] = useState(user?.name || '');
+  const [editName, setEditName] = useState(user?.name || 'ben moussa malek');
   const [editEmail, setEditEmail] = useState(user?.email || '');
   const [editPhone, setEditPhone] = useState(user?.phone || '');
   const [editWhatsappPhone, setEditWhatsappPhone] = useState(user?.whatsappPhone || user?.phone || '+33 6 12 34 56 78');
   const [editAvatarUrl, setEditAvatarUrl] = useState(user?.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80');
   const [profileSuccessMsg, setProfileSuccessMsg] = useState(false);
+
+  React.useEffect(() => {
+    if (user) {
+      setEditName(user.name || 'ben moussa malek');
+      setEditEmail(user.email || '');
+      setEditPhone(user.phone || '');
+      if (user.whatsappPhone) setEditWhatsappPhone(user.whatsappPhone);
+      if (user.avatarUrl) setEditAvatarUrl(user.avatarUrl);
+    }
+  }, [user]);
 
   // Address State
   const [showAddAddressModal, setShowAddAddressModal] = useState(false);

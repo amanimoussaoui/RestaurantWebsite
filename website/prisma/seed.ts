@@ -87,16 +87,16 @@ async function main() {
     });
   }
 
-  // Seed Default Admin & Customer Users (moussaoui amani)
+  // Seed Default Admin & Customer Users (ben moussa malek)
   await prisma.user.upsert({
     where: { email: 'amanimoussaoui06@gmail.com' },
     update: {
-      name: 'moussaoui amani',
+      name: 'ben moussa malek',
       phone: '+216 27 500 246'
     },
     create: {
       email: 'amanimoussaoui06@gmail.com',
-      name: 'moussaoui amani',
+      name: 'ben moussa malek',
       phone: '+216 27 500 246',
       role: 'customer',
       addresses: {
@@ -115,12 +115,12 @@ async function main() {
   await prisma.user.upsert({
     where: { email: 'amounatahfouna443@gmail.com' },
     update: {
-      name: 'moussaoui amani',
+      name: 'ben moussa malek',
       phone: '+216 27 500 246'
     },
     create: {
       email: 'amounatahfouna443@gmail.com',
-      name: 'moussaoui amani',
+      name: 'ben moussa malek',
       phone: '+216 27 500 246',
       role: 'admin',
       addresses: {

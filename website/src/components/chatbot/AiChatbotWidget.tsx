@@ -14,6 +14,15 @@ interface ChatMessage {
   recommendedProducts?: MenuItem[];
 }
 
+function getProductName(prod: any, lang: string): string {
+  if (!prod) return 'Plat Le Crispy';
+  if (typeof prod.name === 'string') return prod.name;
+  if (prod.name && typeof prod.name === 'object') {
+    return prod.name[lang] || prod.name['fr'] || prod.name['en'] || Object.values(prod.name)[0] || 'Plat Le Crispy';
+  }
+  return prod.nameFr || prod.name_fr || 'Plat Le Crispy';
+}
+
 export default function AiChatbotWidget() {
   const { t, language } = useLanguage();
   const { addItem } = useCart();
@@ -155,12 +164,12 @@ export default function AiChatbotWidget() {
                       >
                         <img
                           src={prod.image}
-                          alt={prod.name.fr}
+                          alt={getProductName(prod, language)}
                           className="w-12 h-12 rounded-lg object-cover shrink-0"
                         />
                         <div className="flex-1 min-w-0">
                           <h5 className="font-gold font-bold text-xs text-white truncate">
-                            {prod.name[language] || prod.name.fr}
+                            {getProductName(prod, language)}
                           </h5>
                           <span className="font-gold font-bold text-xs text-[var(--accent-gold)]">
                             {prod.price.toFixed(2)} €

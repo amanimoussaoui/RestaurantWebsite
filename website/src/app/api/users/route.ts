@@ -8,12 +8,19 @@ export async function GET() {
       orderBy: { createdAt: 'desc' },
     });
 
-    return NextResponse.json(users);
+    const sanitizedUsers = users.map(u => ({
+      ...u,
+      name: u.name && (/moussaoui|amani|youssef|youssen|ammar|aamar/i.test(u.name))
+        ? (u.role === 'admin' ? 'ben moussa malek (Admin)' : 'ben moussa malek')
+        : u.name
+    }));
+
+    return NextResponse.json(sanitizedUsers);
   } catch (error) {
     console.error('API Error /api/users GET:', error);
     return NextResponse.json([
-      { id: 'usr-1', name: 'moussaoui amani', email: 'amanimoussaoui06@gmail.com', phone: '+216 27 500 246', role: 'customer', createdAt: '2026-07-20' },
-      { id: 'usr-2', name: 'moussaoui amani (Admin)', email: 'amounatahfouna443@gmail.com', phone: '+216 27 500 246', role: 'admin', createdAt: '2026-06-10' }
+      { id: 'usr-1', name: 'ben moussa malek', email: 'amanimoussaoui06@gmail.com', phone: '+216 27 500 246', role: 'customer', createdAt: '2026-07-20' },
+      { id: 'usr-2', name: 'ben moussa malek (Admin)', email: 'amounatahfouna443@gmail.com', phone: '+216 27 500 246', role: 'admin', createdAt: '2026-06-10' }
     ]);
   }
 }
@@ -35,7 +42,7 @@ export async function PUT(req: Request) {
       },
       create: {
         email,
-        name: name || 'moussaoui amani',
+        name: name || 'ben moussa malek',
         phone: phone || '+216 27 500 246',
         avatarUrl: avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
         role: 'customer'

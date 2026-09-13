@@ -154,13 +154,13 @@ export default function StripeCheckoutModal() {
                   >
                     <img
                       src={item.product.image}
-                      alt={item.product.name.fr}
+                      alt={typeof item.product.name === 'string' ? item.product.name : (item.product.name?.[language] || item.product.name?.fr || (item.product as any).nameFr || 'Plat Le Crispy')}
                       className="w-14 h-14 rounded-lg object-cover"
                     />
 
                     <div className="flex-1 min-w-0">
                       <h4 className="font-gold font-bold text-xs text-white truncate">
-                        {item.product.name[language] || item.product.name.fr}
+                        {typeof item.product.name === 'string' ? item.product.name : (item.product.name?.[language] || item.product.name?.fr || (item.product as any).nameFr || 'Plat Le Crispy')}
                       </h4>
                       <span className="font-bold text-xs text-[var(--accent-gold)]">
                         {item.product.price.toFixed(2)} €

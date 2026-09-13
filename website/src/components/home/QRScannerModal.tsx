@@ -81,8 +81,8 @@ export default function QRScannerModal({ isOpen, onClose }: QRScannerModalProps)
               {/* Simulated QR Code SVG Graphic */}
               <div className="w-32 h-32 mx-auto bg-white p-2 rounded-lg shadow-inner flex items-center justify-center">
                 <img
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://lornor-gourmet.fr/menu?table=07"
-                  alt="QR Code Table"
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://lecrispy.vercel.app"
+                  alt="QR Code Table Le Crispy"
                   className="w-full h-full object-contain"
                 />
               </div>
